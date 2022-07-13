@@ -27,3 +27,34 @@ const restaurant = {
     },
   },
 };
+
+const text_area = document.getElementById('text-area');
+
+const btn_submit = document.getElementById('submit');
+
+btn_submit.addEventListener('click', handleSubmit);
+
+// function handleSubmit() {
+//   const text_input = text_area.value.toLowerCase().trim();
+//   const a = text_input.split('\n').map(e => {
+//     let a = e.split('_');
+//     a[1] = a[1].replace(e.split('_')[1][0], e.split('_')[1][0].toUpperCase());
+//     return a.join("")
+//   });
+//   a.forEach((el, index)=> console.log(`${el.padEnd(20)} ${':)'.repeat(index + 1)}`))
+// }
+
+function handleSubmit(){
+ const text = text_area.value
+
+ const textArr = text.split("\n")
+ for(const [i, str] of textArr.entries()){
+
+   const [first, second] = str.trim().toLowerCase().split("_")
+
+   const output = `${first}${second.replace(second[0],second[0].toUpperCase())}`
+
+   console.log(`${output.padEnd(20)}${':)'.repeat(i + 1)}`)
+  
+ }
+}
